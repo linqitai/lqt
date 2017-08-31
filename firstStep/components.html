@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="example">
+    <ul class="tab">
+        <li @click="currentView='home'">home</li>
+        <li @click="currentView='posts'">posts</li>
+        <li @click="currentView='archive'">archive</li>
+    </ul>
+    <transition name="component-fade" mode="out-in">
+        <keep-alive>
+            <component v-bind:is="currentView">
+                <!-- 组件在 vm.currentview 变化时改变！ -->
+            </component>
+        </keep-alive>
+    </transition>
+</div>
+
+</body>
+<script>
+    Vue.component('component', {
+        template: ''
+    })
+    var Home = {
+        template: '<p>Welcome home!</p>'
+    }
+    var Posts = {
+        template: '<p>Welcome Posts!</p>'
+    }
+    var Archive = {
+        template: '<p>Welcome Archive!</p>'
+    }
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            currentView: 'home'
+        },
+        components: {
+            home: Home,
+            posts: Posts,
+            archive: Archive
+        }
+    })
+</script>
+<style>
+    .tab{
+        display: flex;
+    }
+    .tab li{
+        flex: 1;
+        list-style: none;
+        cursor: pointer;
+    }
+    .component-fade-enter-active, .component-fade-leave-active {
+        transition: opacity .1s ease;
+    }
+    .component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active for below version 2.1.8 */ {
+        opacity: 0;
+    }
+</style>
+</html>

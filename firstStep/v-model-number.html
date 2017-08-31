@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+<div id="example-6">
+    <input type="number" v-model.number="text" v-on:blur="aaa()"/>
+    -<span>{{text}}</span>-
+</div>
+</body>
+<script>
+    var example6 = new Vue({
+        el: '#example-6',
+        data: {
+            text:''
+        },
+        methods:{
+            aaa: function () {
+                console.log("-"+this.text+"-");
+            }
+        }
+    });
+</script>
+<style>
+
+</style>
+</html>

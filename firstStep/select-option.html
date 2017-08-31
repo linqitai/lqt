@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+<div id="example-6">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value" :disabled="option.value === ''?true:false">
+            {{option.text}}
+        </option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+</body>
+<script>
+    var example6 = new Vue({
+        el: '#example-6',
+        data: {
+            selected:'',
+            options: [
+                {text:'one',value:1},
+                {text:'two',value:2},
+                {text:'three',value:3}
+            ]
+        }
+    });
+    var a = {text:'请选择',value:''};
+    example6.options.unshift(a);
+</script>
+<style>
+
+</style>
+</html>

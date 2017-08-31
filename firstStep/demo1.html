@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <input type="text" id="text" v-on:input="changeText" />
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            changeText: function (e) {
+                console.log(e.target.value);
+            }
+        }
+    })
+    var value = "hello"
+    console.log(value.charAt(0).toUpperCase() + value.slice(1));
+    var a = 12.121;
+    console.log(a.toFixed(2));
+    //assign
+    var obj = {
+        a: 1
+    };
+    var copy = Object.assign({}, obj);
+    console.log(copy);
+    var o1 = {
+        a: 1
+    };
+    var o2 = {
+        b: 2
+    };
+    var o3 = {
+        c: 3
+    };
+    var obj = Object.assign(o1, o2, o3);
+    console.log(obj); // { a: 1, b: 2, c: 3 }
+    console.log(o1); // { a: 1, b: 2, c: 3 }
+    console.log(o2);
+    console.log(o3);
+    console.log(3 / 2);
+
+    function padLeftZero(str) {
+        return ('00' + str).substr(str.length-1);
+    };
+    console.log(padLeftZero('9:10'))
+</script>
+
+</html>

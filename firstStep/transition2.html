@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="demo">
+    <transition>
+        <button v-bind:key="isEditing" @click="isEditing = !isEditing">
+            {{ isEditing ? 'Save' : 'Edit' }}
+        </button>
+    </transition>
+</div>
+<div id="demo2">
+    <transition  name="slide-fade">
+        <button v-bind:key="docState" @click="changeState()">
+            {{ buttonMessage }}
+        </button>
+    </transition>
+    <input type="text" @input="inInput()"/>
+</div>
+
+</body>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            isEditing: true
+        }
+    })
+    var vm = new Vue({
+        el: '#demo2',
+        data: {
+            docState: 'saved'
+        },
+        computed: {
+            buttonMessage: function () {
+                switch (this.docState) {
+                    case 'saved': return 'Edit'
+                    case 'edited': return 'Save'
+                    case 'editing': return 'Cancel'
+                }
+            }
+        },
+        methods:{
+            changeState:function(){
+                if(this.docState === 'saved'){
+                    this.docState =  'editing'
+                    console.log("docState："+this.docState);
+                }else if(this.docState === 'edited'){
+                    this.docState =  'saved'
+                }
+            },
+            inInput: function () {
+                this.docState =  'edited'
+            }
+        }
+    })
+</script>
+<style>
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+    transition: all .1s ease;
+}
+.slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(-10px);
+    opacity: 0;
+}
+
+</style>
+</html>

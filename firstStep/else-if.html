@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="example">
+    <p :class="">Original message: "{{ message }}"</p>
+    <table v-if="list.length">
+        <thead>
+            <tr>
+                <th>性别</th>
+                <th>类型</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="item in list">
+                <td v-if="item.sex === 0">女</td>
+                <td v-else-if="item.sex === 1">男</td>
+                <td v-else>未知</td>
+                <td :class="typeClass(item.type)">{{typer(item.type)}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p v-else>No data!</p>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            message: 'Hello',
+            list:[
+                {
+                    sex:0,
+                    type:1
+                },
+                {
+                    sex:1,
+                    type:0
+                },
+                {
+                    sex:1,
+                    type:2
+                },
+                {
+                    sex:3,
+                    type:2
+                }
+            ]
+        },
+        methods: {
+            sexer: function (sex) {
+                return sex==0?'男':'女'
+            },
+            typer:function(type){
+                var text=['良民','有案底','逃犯'];
+                return text[type];
+            },
+            typeClass:function(type){
+                var color=['c-green','c-red','c-yellow'];
+                return color[type];
+            }
+        }
+    })
+</script>
+<style>
+    .c-green{
+        color: #42b983;
+    }
+    .c-red{
+        color:#ff0000;
+    }
+    .c-yellow{
+        color: yellow;
+    }
+</style>
+</html>

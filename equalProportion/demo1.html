@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*.box {
+            width:50%;
+            height: 0;
+            padding-bottom: 30%;
+            background-color: red;
+            *//*盒子的宽高按照5:3的等比例缩放*//*
+        }*/
+        .box{
+            margin-left: 20px;
+            border: 1px solid #0074D9;
+        }
+        .fontCss{
+            color:#ff0000;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+123
+    </div>
+    <div class="box">
+123123
+    </div>
+</body>
+<script>
+    document.getElementsByClassName('box')[0].className='box fontCss';
+</script>
+</html>

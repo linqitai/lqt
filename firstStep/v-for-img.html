@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app-4">
+    <img v-for="img in imgs" :src="img.img" alt=""/>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app-4',
+        data: {
+            imgs: [{img:'./images/00.jpg'},{img:'./images/01.jpg'},{img:'./images/02.jpg'}]
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+<div id="example-2">
+    <input type="checkbox" id="man" value="man" v-model="aaa">
+    <label for="man">man</label>
+    <span>Checked names: {{ aaa }}</span>
+    <hr/>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+</div>
+</body>
+<script>
+    var example2 = new Vue({
+        el: '#example-2',
+        data: {
+            aaa: [],
+            checkedNames:[]
+        },
+        // 在 `methods` 对象中定义方法
+        methods: {
+            warn: function (message, event) {
+                // 现在我们可以访问原生事件对象
+                if (event) event.preventDefault()
+                alert(message)
+            }
+        }
+    })
+</script>
+<style>
+
+</style>
+</html>

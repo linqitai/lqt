@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/tween.js@16.3.4"></script>
+</head>
+<body>
+
+<div id="animated-number-demo">
+    <input v-model.number="number" type="number" step="20">
+    <p>{{ animatedNumber }}</p>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#animated-number-demo',
+        data: {
+            number: 0,
+            animatedNumber: 0
+        },
+        mounted: function () {
+            this.number = 20;
+        },
+        watch: {
+            number: function(newValue, oldValue) {
+                function animate () {
+                    if (TWEEN.update()) {
+                        requestAnimationFrame(animate)
+                    }
+                }
+                new TWEEN.Tween({ tweeningNumber: oldValue })
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({ tweeningNumber: newValue }, 500)
+                        .onUpdate(function () {
+                            vm.animatedNumber = this.tweeningNumber.toFixed(0)
+                        })
+                        .start()
+                animate()
+            }
+        }
+    })
+</script>
+<style>
+</style>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="example">
+    <my-component></my-component>
+</div>
+
+</body>
+<script>
+    var data = {
+        msg: 'components'
+    };
+    Vue.component('my-component',{
+        template:'<div>A custom {{msg}}!</div>',
+        data:function(){
+            return data;
+        }
+    })
+    new Vue({
+        el:'#example'
+    })
+</script>
+</html>

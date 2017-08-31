@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="example">
+    <div class="aaa" v-for="n in evenNumbers">{{ n }}</div>
+</div>
+
+</body>
+<script>
+    var data={
+        numbers: [ 1, 2, 3, 4, 5 ]
+    }
+    var vm = new Vue({
+        el: '#example',
+        data: data,
+        computed:{
+            evenNumbers: function () {
+                return this.numbers.filter(function(number){
+                    return number % 2 === 0;
+                });
+            }
+        }
+    });
+</script>
+<style>
+    #example{
+        display: flex;
+    }
+    .aaa{
+        flex: 1;
+    }
+</style>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas width='1000' height='1000' id='myCanvas'>
+
+    您的浏览器版本过低，不支持HTML5新增的canvas标签。
+
+</canvas>
+</body>
+<script>
+    var canvasID = document.getElementById("myCanvas");
+    var canvas = canvasID.getContext("2d");
+    function drawText(id) {
+        canvas.save();
+        canvas.translate(100, 300);
+        canvas.strokeStyle = "#099";
+        canvas.fillStyle = "#879";
+        canvas.font = "normal 90px 微软雅黑";
+        canvas.strokeText("hello html5", 0, 0);
+        canvas.fillText("hello html5", 0, 0);
+        canvas.restore();
+    }
+    drawText("myCanvas");
+</script>
+</html>

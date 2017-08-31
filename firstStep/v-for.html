@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app-4">
+    <ol>
+        <li v-for="(todo,index) in todos">
+            {{index}},{{ todo.text }}
+        </li>
+    </ol>
+</div>
+<ul id="repeat-object" class="demo">
+    <li v-for="(value,key,index) in object">
+        {{ index+1 }}.{{key}}:{{ value }}
+    </li>
+</ul>
+</body>
+<script>
+    var app4 = new Vue({
+        el: '#app-4',
+        data: {
+            todos: [
+                { text: '学习 JavaScript' },
+                { text: '学习 Vue' },
+                { text: '整个牛项目' }
+            ]
+        }
+    })
+    new Vue({
+        el: '#repeat-object',
+        data: {
+            object: {
+                firstName: 'John',
+                lastName: 'Doe',
+                age: 30
+            }
+        }
+    })
+</script>
+</html>

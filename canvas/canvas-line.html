@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas width='1000' height='1000' id='myCanvas'>
+
+    您的浏览器版本过低，不支持HTML5新增的canvas标签。
+
+</canvas>
+</body>
+<script>
+    var canvasID = document.getElementById("myCanvas");
+    var canvas = canvasID.getContext("2d");
+    function drawLine(id) {
+        canvas.translate(150, 100);
+        canvas.lineWidth = 2;
+        canvas.strokeStyle = "#999";
+        canvas.beginPath();
+        canvas.moveTo(0, 0);
+        canvas.lineTo(100, 0);
+        canvas.closePath();
+        canvas.stroke();
+    }
+    drawLine("myCanvas");
+
+    //画三角形
+    function drawSanjiao(id) {
+        canvas.save();
+        canvas.translate(250, 100);
+        canvas.lineWidth = 3;
+        canvas.strokeStyle = "#0f0";
+        canvas.beginPath();
+        canvas.moveTo(0, 0);
+        canvas.lineTo(0, 120);
+        canvas.lineTo(100, 60);
+        canvas.lineTo(0, 0);
+        canvas.stroke();
+        canvas.closePath();
+        canvas.restore();
+    }
+    drawSanjiao('myCanvas')
+    //画长方形
+    function drawRect(id){
+        canvas.save();
+        canvas.translate(10, 10);
+        canvas.strokeStyle = '#0f0';
+        canvas.strokeRect(0,0,100,100);
+        canvas.restore();
+    }
+    drawRect('myCanvas');
+
+    function drawRect2(id){
+        canvas.save();
+        canvas.translate(22, 22);
+        canvas.strokeStyle = '#0f0';
+        canvas.strokeRect(0,0,100,100);
+        canvas.restore();
+    }
+    drawRect2('myCanvas');
+</script>
+</html>

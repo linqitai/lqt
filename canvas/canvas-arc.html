@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas width='1000' height='1000' id='myCanvas'>
+
+    您的浏览器版本过低，不支持HTML5新增的canvas标签。
+
+</canvas>
+</body>
+<script>
+    var canvasID = document.getElementById("myCanvas");
+    var canvas = canvasID.getContext("2d");
+    //画圆方法
+    function drawArc(id) {
+        canvas.beginPath();
+        canvas.lineWidth = 5;
+        canvas.fillStyle = "#ff0";
+        canvas.strokeStyle = "#0ff";
+        canvas.arc(200, 200, 100, 0, 360, false);//x坐标、y坐标、半径、
+        canvas.fill();
+        canvas.stroke();
+        canvas.closePath();
+    }
+    drawArc("myCanvas");
+</script>
+</html>

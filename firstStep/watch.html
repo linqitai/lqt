@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+    <div id="example" v-on:click="aaa()">
+       click
+    </div>
+
+</body>
+<script>
+    var data = { a: 1 }
+    var vm = new Vue({
+        el: '#example',
+        data: data,
+        methods:{
+            aaa: function () {
+                data.a += 1;
+            }
+        }
+    })
+    // $watch 是一个实例方法
+    vm.$watch('a', function (newVal, oldVal) {
+        // 这个回调将在 `vm.a`  改变后调用
+        console.log("a change,newVal:"+newVal+",oldVal:"+oldVal);
+    })
+</script>
+</html>

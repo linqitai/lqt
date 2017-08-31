@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="example">
+    <my-component my-message="components"></my-component><!--特别要注意这里的msg只是一个普通的参数-->
+</div>
+
+</body>
+<script>
+    Vue.component('my-component',{
+        props:['myMessage'],
+        template:'<div>A custom {{myMessage}}!</div>'
+    })
+    new Vue({
+        el:'#example'
+    })
+</script>
+</html>

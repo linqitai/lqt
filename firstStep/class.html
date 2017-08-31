@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div class="static" v-bind:class="{ 'active': isActive, 'text-danger': hasError }"
+        @click="changeData()">
+    我是你的小苹果
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '.static',
+        data: {
+            isActive: true,
+            hasError: false
+        },
+        methods:{
+            changeData: function () {
+                this.isActive = false;
+                this.hasError = true;
+            }
+        }
+    })
+</script>
+<style>
+    .active{
+        cursor: pointer;
+        color: blue;
+    }
+    .text-danger{
+        color: #ff0000;
+    }
+</style>
+</html>

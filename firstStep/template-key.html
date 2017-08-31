@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="example">
+    <template v-if="userType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username"><!--key决定了一个元素是否被复用-->
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email">
+    </template>
+    <button @click="toggle()">Toggle</button>
+</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            userType:"username"
+        },
+        methods: {
+            toggle: function () {
+                this.userType = this.userType==='username'?'email':'username';
+            }
+        }
+    })
+</script>
+<style>
+    .c-green{
+        color: #42b983;
+    }
+    .c-red{
+        color:#ff0000;
+    }
+    .c-yellow{
+        color: yellow;
+    }
+</style>
+</html>

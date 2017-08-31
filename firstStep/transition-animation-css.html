@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+<div id="example-1">
+    <button @click="show = !show">
+        Toggle render
+    </button>
+    <transition
+            name="custom-classes-transition"
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOutDown"
+            >
+        <p v-if="show">hello</p>
+    </transition>
+</div>
+
+</body>
+<script>
+    new Vue({
+        el: '#example-1',
+        data: {
+            show: true
+        }
+    })
+</script>
+<style>
+    #example-1{
+        padding-left: 40px;
+        width: 500px;
+    }
+</style>
+</html>

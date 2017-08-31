@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+<div id="example-2">
+    <input type="radio" id="man" value="man" v-model="sex"><label for="man">man</label>
+    <input type="radio" id="women" value="women" v-model="sex"><label for="women">women</label>
+    <span>Checked sex: {{ sex }}</span>
+</div>
+</body>
+<script>
+    var example2 = new Vue({
+        el: '#example-2',
+        data: {
+            sex: []
+        }
+    })
+</script>
+<style>
+
+</style>
+</html>

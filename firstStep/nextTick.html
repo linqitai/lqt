@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+<div id="example">{{message}}</div>
+
+</body>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            message: '123'
+        }
+    })
+    vm.message = 'new message' // 更改数据
+    console.log(vm.$el.textContent === 'new message') // false
+    Vue.nextTick(function () {
+        console.log(vm.$el.textContent === 'new message') // true
+    })
+</script>
+<style>
+
+</style>
+</html>
