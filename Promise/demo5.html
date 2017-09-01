@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="Access-Control-Allow-Origin" content="http://192.168.18.178:3000">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="box">
+  </div>
+</body>
+<script>
+  var fetchDoubanApi = function () {
+    return new Promise((resolve, reject) => {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            var response;
+            try {
+              response = JSON.parse(xhr.responseText);
+            } catch (e) {
+              reject(e);
+            }
+            if (response) {
+              resolve(response, xhr.status, xhr);
+            }
+          } else {
+            reject(xhr);
+          }
+        }
+      };
+      xhr.open('GET', 'http://192.168.18.178:3000/users/getuserInfo?id=2', true);
+      xhr.setRequestHeader("Content-Type", " text/plain");
+      xhr.send();
+    });
+  };
+
+  (async function () {
+    try {
+      let result = await fetchDoubanApi();
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+  })();
+</script>
+
+</html>
